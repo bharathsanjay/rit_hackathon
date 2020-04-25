@@ -14,7 +14,7 @@ def sentiment(news,value):
     return newsfeed
 
 #15 day news feed
-def newsfeed(area): //Area specified NewsFeed
+def newsfeed(area): #Area specific NewsFeed
     today = datetime.utcnow().date()
     duration = datetime.utcnow().date() - timedelta(days = 5)
 
