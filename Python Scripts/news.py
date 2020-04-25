@@ -14,8 +14,8 @@ def sentiment(news,value):
     for i in news['articles']:
         article = TextBlob(i['description'])
         if(article.sentiment.polarity > value):
-            #newsfeed.append(i)
-            newsfeed.append([i['source']['name'],i['title'],i['description']])
+            newsfeed.append(i)
+            #newsfeed.append([i['source']['name'],i['title'],i['description']])
             #[i['publishedAt']
             """print(i['source']['name'])
             print(i['title'])
