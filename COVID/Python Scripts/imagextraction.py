@@ -1,27 +1,26 @@
-#Image extraction module still in testing
-
-from urllib.request import urlopen, Request
-from bs4 import BeautifulSoup
-import itertools
 import requests
-import json
+import sys
+from bs4 import BeautifulSoup
 
-def get_soup(url):
-    """REQUEST_HEADER = {
-    'User-Agent': "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36"}"""
-    response = requests.get(url,params = keyword)
-    return BeautifulSoup(response.text, 'html.parser')
+def imgextract(search):
+    try:
+        params = {"q": search}
+        r = requests.get("http://www.bing.com/images/search", params=params)
 
-def imgextract(keyword):
-    keyword = keyword.split()
-    keyword ='+'.join(keyword)
-    url="http://www.bing.com/images/search?q="+keyword
-    soup = get_soup(url)
-    print(soup)
-    #t = soup.find_all("div",{"class":"rg_meta"})
-    soup_imgs = soup.find('a', attrs={'class':'iusc'})
-    for i in soup_imgs:
-        src = i['src']
-        return src
-    
+        soup = BeautifulSoup(r.text, "html.parser")
+        links = soup.find("a", {"class": "thumb"})
+
+        #print(links.attrs["href"])
+        with open("P:\Pvz_Program_Files\Web_Development\COVID\Python Scripts\img.txt",'w') as f:
+            f.write(links.attrs["href"])
+
+        #return(links.attrs["href"])
+
+    except Exception:
+        return "https://miro.medium.com/max/5000/1*Q33vwKNBXPxeOpmg9WPsrw.jpeg"
+
+if len(sys.argv)>1:
+    imgextract(sys.argv[1])
+  
+
 

@@ -1,7 +1,7 @@
 from newsapi.newsapi_client import NewsApiClient
 from textblob import TextBlob
 from datetime import datetime,timedelta
-
+import os
 
 def display(newsfeed):
     for i in newsfeed:
@@ -82,13 +82,22 @@ with open(tfile,'w') as d:
     d.write('')
 # emptied the file above
 
-with open(tfile,'a') as f:
-    li=[]
-    for _ in newsfeed:
-        a=str(_['title'])+"`"+str(_['description'])+"`"+str(_['url']+"\n")
-        li.append(a)
-    li=list(set(li))
-    a=""
-    for _ in li:
-        a+=_
+def getImg(title):
+    os.chdir('P:\\Pvz_Program_Files\\Web_Development\\COVID\\Python Scripts')
+    os.system(f'python imagextraction.py "{title}"')
+    with open("P:\\Pvz_Program_Files\\Web_Development\\COVID\\Python Scripts\\img.txt",'r') as r:
+        x=r.readline()
+        return(x)
+
+
+li=[]
+for _ in newsfeed:
+    a=str(_['title'])+"`"+str(_['description'])+"`"+str(_['url'])+"\n"
+    li.append(a)
+li=list(set(li))
+a=""
+for _ in li:
+    a+=_
+a=''.join([x for x in a if((ord(x) in range(65,91)) or (ord(x) in range(97,123)) or (ord(x) in range(48,58)) or (ord(x) in [95,58,47,10,96,45,43,42,47,46,61,32,64,38,33,35,36,37,94,38,40,91,93]))])
+with open(tfile,'a') as f:    
     f.write(a[:-1])
