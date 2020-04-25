@@ -6,6 +6,17 @@ hr{
     top:30px;*/
 }
 
+#n1a,#n2a,#n3a{
+    position: relative;
+    font-size: 20px;
+    bottom:10px;
+}
+
+#n1b,#n2b,#n3b{
+    position: relative;
+    font-size: 20px;
+    top:10px;
+}
 
 body{
     background-color: white;
@@ -33,6 +44,20 @@ h1{
     display:table-cell;
     color: white;
     font-weight: bolder;
+}
+
+.newsblock{
+    height:55%;
+    /*width:250;*/
+    width:30%;
+    margin:12px;
+    border:2px solid crimson;
+    display:table-cell;
+    color: white;
+    background-color: rgb(0, 255, 0);
+    font-weight: bolder;
+    position: relative;
+
 }
 
 #block1{
