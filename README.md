@@ -31,6 +31,7 @@ area = "Chennai"
 news.newsfeed(area) # Returns news feed for a specific area in JSON format
 news.sentiment(area,value) # Returns sentiment analysed newsfeed
 ```
+## Sample Screenshots
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
