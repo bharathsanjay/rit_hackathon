@@ -23,7 +23,7 @@ def newsfeed(area): #Area specific NewsFeed
     news = NewsApiClient(api_key = "0de6787ea7e44a8691ce4a5d556d18dc")
 
     #News extraction
-    top_headlines = news.get_everything(q='{} AND (quarantine OR corona OR covid OR lockdown) NOT positive NOT Deadlier NOT Dead'.format(area),
+    top_headlines = news.get_everything(q='+{} AND (quarantine OR corona OR covid OR lockdown) NOT positive NOT Deadlier NOT Dead'.format(area),
                                           from_param=duration,
                                           language='en')
 
