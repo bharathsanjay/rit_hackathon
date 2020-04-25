@@ -4,6 +4,7 @@
             CORONA NEWS
         </title>
         <script src="countUp.js"></script>
+        <script src="https://kit.fontawesome.com/943a366770.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="style.css">
@@ -35,8 +36,8 @@ async function getData(){
     lineChart.data.datasets[0].data=y;
     
     
-    document.getElementById('block2').innerHTML="Total Recoveries<br> Today:<br> <font size=36px>"+String(y[y.length-1]-y[y.length-2])+"</font>";
-    document.getElementById('block1').innerHTML="Total Recovered<br> Patients:<br> <font size=36px>"+String(y[y.length-1])+"</font>";
+    document.getElementById('block2').innerHTML="<br>Total Recoveries <br> Today:<br> <font size=36px>"+String(y[y.length-1]-y[y.length-2])+"<br><i class='fas fa-user-nurse'></i></font>";
+    document.getElementById('block1').innerHTML="Total Recovered<br> Patients:<br> <font size=36px>"+String(y[y.length-1])+"<br><i class='fas fa-briefcase-medical'></i></font>";
     lineChart.update();
 }
 getData();
