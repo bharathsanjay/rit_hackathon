@@ -29,7 +29,7 @@ def sentiment(news,value):
             newsfile.write("\n")
             newsfile.write("---------------------------------------------------\n")"""
             
-    #returns newssource, title, and description as 2D array          
+    #returns newssource, title, and description       
     return newsfeed
 
     #newsfile.close()
