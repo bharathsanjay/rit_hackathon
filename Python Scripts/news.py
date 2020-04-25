@@ -14,21 +14,19 @@ def sentiment(news,value):
     return newsfeed
 
 #15 day news feed
+def newsfeed(area): //Area specified NewsFeed
+    today = datetime.utcnow().date()
+    duration = datetime.utcnow().date() - timedelta(days = 5)
 
-today = datetime.utcnow().date()
-duration = datetime.utcnow().date() - timedelta(days = 15)
+    #API KEY
 
-#API KEY
+    news = NewsApiClient(api_key = "0de6787ea7e44a8691ce4a5d556d18dc")
 
-news = NewsApiClient(api_key = "0de6787ea7e44a8691ce4a5d556d18dc")
+    #News extraction
+    top_headlines = news.get_everything(q='{} AND (quarantine OR corona OR covid OR lockdown) NOT positive NOT Deadlier NOT Dead'.format(area),
+                                          from_param=duration,
+                                          language='en')
 
-#News extraction
+    #sentiment analysis using Textblob
 
-top_headlines = news.get_everything(q='covid OR corona OR success OR recovered OR lockdown OR quarantine OR recovery NOT positive NOT Deadlier NOT Dead',
-                                      from_param=duration,
-                                      language='en')
-
-#sentiment analysis using Textblob
-
-newsfeed = sentiment(top_headlines,0.2)
-
+    newsfeed = sentiment(top_headlines,0.0)
