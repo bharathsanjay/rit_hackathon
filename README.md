@@ -34,7 +34,7 @@ news.sentiment(area,value) # Returns sentiment analysed newsfeed
 ## Sample Screenshots
 ![pic_a](https://github.com/SayadPervez/rit_hackathon/blob/master/SNIPS/a.JPG?raw=true)
 ![pic_b](https://github.com/SayadPervez/rit_hackathon/blob/master/SNIPS/b.JPG?raw=true)
-![pic_c](https://github.com/SayadPervez/rit_hackathon/blob/master/SNIPS/c.JPG?raw=true)
+![pic_c](https://github.com/SayadPervez/rit_hackathon/blob/master/SNIPS/c__.JPG?raw=true)
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
