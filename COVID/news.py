@@ -48,7 +48,7 @@ def newssources():
 #15 day news feed
 
 today = datetime.utcnow().date()
-duration = datetime.utcnow().date() - timedelta(days = 15)
+duration = datetime.utcnow().date() - timedelta(days = 5)
 
 #API KEY
 

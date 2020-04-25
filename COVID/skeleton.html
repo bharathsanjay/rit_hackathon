@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>
-            CORONA NEWS
+            COPE UP GOOD HOPE
         </title>
         <script src="https://kit.fontawesome.com/943a366770.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
@@ -148,7 +148,7 @@ var lineChart= new Chart(ctx,{
 });
 }
 
-setInterval(read(), 25000);
+setInterval(read(), 300000);
 
 async function read(){
     let response = await fetch("./fdata.txt");
@@ -197,9 +197,9 @@ async function sRank(){
     var ind=X.indexOf(q);
     var sel = Y[ind];
     console.log(sel/max * 100);
-    if(sel >= 2000)  ans="Dangerous";
-    else if((sel< 2000)&&(sel>= 500))  ans="Moderate";
-    else ans="Safe";
+    if(sel >= 2000)  ans="RED ZONE  <i class='fas fa-exclamation-triangle'></i>  ";
+    else if((sel< 2000)&&(sel>= 500))  ans="<i class='fas fa-times-circle'>  YELLOW ZONE  <i class='fas fa-times-circle'></i>";
+    else ans="SAFE ZONE  <i class='far fa-thumbs-up'></i>";
     document.getElementById("answer").innerHTML=ans;
 
 }
@@ -262,7 +262,7 @@ async function bc3(){
         <br><br>
         <hr>
         <div class="box">
-        <h2>SELECT YOUR STATE:</h2>
+        <h2>SELECT YOUR STATE:  <i class="fas fa-map-marked-alt"></i></h2>
         <select  name="state" id="state" class="form-control" style="width:20%" onchange="sRank()">
             <option value="None">--SELECT AN OPTION--</option>
             <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -303,7 +303,7 @@ async function bc3(){
             <option value="West Bengal">West Bengal</option>
             </select><br><h2 id="answer"><h2></div>
         <hr>
-        <b><h1>NEWS ON CORONA VIRUS:</h1></b>
+        <b><h1><i class="fas fa-globe-africa"></i>  NEWS ON CORONA VIRUS  <i class="fas fa-satellite-dish"></i></h1></b>
         <div style="border:2px solid crimson;">
             <span id="newsfeed" >
                 
