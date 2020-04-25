@@ -34,10 +34,15 @@ async function getData(){
     });
     lineChart.data.labels=x;
     lineChart.data.datasets[0].data=y;
-    
-    
-    document.getElementById('block2').innerHTML="<br>Total Recoveries <br> Today:<br> <font size=36px>"+String(y[y.length-1]-y[y.length-2])+"<br><i class='fas fa-user-nurse'></i></font>";
-    document.getElementById('block1').innerHTML="Total Recovered<br> Patients:<br> <font size=36px>"+String(y[y.length-1])+"<br><i class='fas fa-briefcase-medical'></i></font>";
+    var i = 0;
+    theLabel = document.getElementById("count2");
+    var interval = setInterval(function(){ 
+    if (i == y[y.length-1]-y[y.length-2]) clearInterval(interval);
+    theLabel.innerHTML = i; 
+    i++;
+}, 
+0.1);    
+    document.getElementById('count1').innerHTML=String(y[y.length-1]);
     lineChart.update();
 }
 getData();
@@ -79,10 +84,10 @@ var lineChart= new Chart(ctx,{
 
         
         <div style="position:static;">
-        <button class="subblocks" id="block1" disabled >LOADING...</button>
+        <button class="subblocks" id="block1" disabled >Total Recovered<br> Patients:<br> <font size=36px><span id="count1">LOADING...</span><br><i class='fas fa-briefcase-medical'></i></font></button>
         <section style="width:50%;height:500px;position:static;margin:12px;">
         <canvas id="plot" height="200px" style="border:2px solid crimson;padding:4px;position:static"></canvas>
-        </section><button class="subblocks" id="block2" disabled>LOADING...</button>
+        </section><button class="subblocks" id="block2" disabled><br>Total Recoveries <br> Today:<br> <font size=36px><span id="count2">LOADING...</span><br><i class='fas fa-user-nurse'></i></font></button>
         </div>
         <br>
         <br>
